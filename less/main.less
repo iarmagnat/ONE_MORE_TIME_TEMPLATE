@@ -1,0 +1,155 @@
+// out: ../style.css, sourcemap: false, compress: true
+
+// ############## User agent remover ##############
+html {
+  height: 100%;
+}
+body {
+  margin: 0;
+  min-height: 100%;
+}
+
+// ############## Mixins ##############
+
+.link{
+  color: inherit;
+  text-decoration: inherit;
+}
+.rouded-corner {
+  border-radius: 5px;
+}
+.image {
+  max-height: 100%;
+  max-width: 100%;
+}
+.centered-block {
+  padding: @main-spacing;
+  margin: auto;
+}
+
+// ############## Variables ##############
+
+// colors
+@main-color: lightgrey;
+@accent-color: lightgreen;
+@secondary-color: grey;
+@orange: orange;
+
+// sizes
+@navbar-height: 50px;
+@footer-height: @navbar-height * 4;
+@main-spacing: 20px;
+@regular-collumn: 1200px;
+@wide-collumn: 1800px;
+
+body {
+  position: relative;
+  box-sizing: border-box;
+  padding: @navbar-height + 10px 0 @footer-height 0;
+}
+
+.navbar {
+  display: flex;
+  padding: 0;
+  margin: 0;
+  height: @navbar-height;
+  justify-content: space-around;
+  justify-content: space-evenly;
+  align-items: center;
+  list-style: none;
+  background-color: @secondary-color;
+  box-shadow: 0 5px 7px 2px lightgrey;
+  &__fixed {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+  }
+  &__bottom {
+    height: @footer-height;
+  }
+  &__link {
+    .link;
+    .rouded-corner;
+    color: @accent-color;
+    text-transform: uppercase;
+    font-weight: bold;
+    font-size: 15px;
+    height: @navbar-height;
+    padding: 15px;
+    transition: all 0.4s linear;
+    &:hover:not(&__logo) {
+      background-color: @main-color;
+      color: black;
+    }
+    &__logo {
+      max-height: 100%;
+    }
+  }
+  &__image {
+    height: @navbar-height - 5px;
+  }
+}
+
+footer {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+
+.main-title {
+  text-align: center;
+}
+
+.article {
+  padding: @main-spacing;
+  &__main {
+    background-color: @main-color;
+  }
+  &__orange {
+    background-color: @orange;
+  }
+  &__accentuated {
+    background: linear-gradient(@accent-color, white, white)
+  }
+  &__title {
+    text-align: center;
+    &__left {
+      text-align: left;
+      max-width: @regular-collumn;
+      .centered-block;
+    }
+    &__right {
+      text-align: right;
+      max-width: @regular-collumn;
+      .centered-block;
+    }
+  }
+}
+
+.section {
+  .centered-block;
+  text-align: justify;
+  &__centered {
+    max-width: @regular-collumn;
+  }
+  &__wide {
+    max-width: @wide-collumn;
+  }
+  &__image {
+    .image;
+    box-sizing: border-box;
+    border: 2px solid @main-color;
+    margin: @main-spacing / 2; // TODO: remove margin when shrink
+    &__left {
+      float: left;
+    }
+    &__right {
+      float: right;
+    }
+    &__left, &__right {
+      width: 500px;
+    }
+  }
+}
