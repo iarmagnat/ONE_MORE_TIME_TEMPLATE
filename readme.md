@@ -9,7 +9,6 @@
 
 ### To create an article:
 
-    ```
     <article class="article [[ MODIFIER ]]">
         <h2 class="article__title [[ MODIFIER ]]">YOUR TITLE</h2>
         <section class="section [[ MODIFIER ]]">
@@ -38,7 +37,6 @@
  
 ### To add a top bar:
 
-    ```
     <header>
       <nav>
         <ul class="navbar navbar__fixed" id="top-nav">
@@ -58,8 +56,6 @@
 - Note that the responsive version (mobile and tablets) wil look ugly if you dont have around 5 links... `unfixed bug`
 
 ### To add a side bar:
-
-    ```
     
     <aside class="side-bar side-bar__hidden">
       <div class="side-bar__inner">
@@ -87,7 +83,6 @@
 
 ### To add a swapi star wars character list:
 
-    ```
       <article class="article article__accentuated">
         <h2 class="article__title">SWAPI TIME!!</h2>
         <section class="section">
@@ -112,7 +107,6 @@
 
 ### To add a bottom bar:
 
-    ```
     <footer>
       <nav>
         <ul class="navbar navbar__bottom">
