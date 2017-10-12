@@ -41,6 +41,7 @@ body {
 @main-spacing: 20px;
 @regular-collumn: 1200px;
 @wide-collumn: 1800px;
+@side-bar-width: 250px;
 
 body {
   position: relative;
@@ -58,7 +59,7 @@ body {
   align-items: center;
   list-style: none;
   background-color: @secondary-color;
-  box-shadow: 0 5px 7px 2px lightgrey;
+  box-shadow: 0 2px 5px 1px black;
   &__fixed {
     position: fixed;
     top: 0;
@@ -66,7 +67,8 @@ body {
     right: 0;
   }
   &__bottom {
-    height: @footer-height;
+    min-height: @footer-height;
+    flex-wrap: wrap;
   }
   &__link {
     .link;
@@ -77,7 +79,7 @@ body {
     font-size: 15px;
     height: @navbar-height;
     padding: 15px;
-    transition: all 0.4s linear;
+    transition: color 0.4s, background-color 0.4s linear;
     &:hover:not(&__logo) {
       background-color: @main-color;
       color: black;
@@ -85,6 +87,9 @@ body {
     &__logo {
       max-height: 100%;
     }
+  }
+  &__toggle {
+    display: none;
   }
   &__image {
     height: @navbar-height - 5px;
@@ -104,6 +109,9 @@ footer {
 
 .article {
   padding: @main-spacing;
+  &__no-padding {
+    padding: 0;
+  }
   &__main {
     background-color: @main-color;
   }
@@ -131,16 +139,14 @@ footer {
 .section {
   .centered-block;
   text-align: justify;
-  &__centered {
-    max-width: @regular-collumn;
-  }
+  max-width: @regular-collumn;
   &__wide {
     max-width: @wide-collumn;
   }
   &__image {
     .image;
     box-sizing: border-box;
-    border: 2px solid @main-color;
+    box-shadow: 0 2px 5px 1px black;
     margin: @main-spacing / 2; // TODO: remove margin when shrink
     &__left {
       float: left;
@@ -150,6 +156,137 @@ footer {
     }
     &__left, &__right {
       width: 500px;
+    }
+  }
+  &__center-hard {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+    max-width: none;
+  }
+}
+
+.toggle-button {
+  height: @main-spacing * 2;
+  width: @main-spacing * 2;
+  border: 0;
+  border-radius: 7px;
+  background-color: white;
+  color: @accent-color;
+  box-shadow: 0 2px 5px 1px black;
+  outline: 0;
+  i {
+    transition: all 0.25s linear;
+    margin: auto;
+  }
+  &:hover {
+    box-shadow: 0 5px 7px 2px black;
+  }
+  &:active {
+    box-shadow: 0 2px 5px 1px black inset;
+  }
+}
+
+.side-toggle {
+  .toggle-button;
+  position: fixed;
+  bottom: @main-spacing;
+  left: @main-spacing;
+  z-index: 10;
+}
+
+.flipped i {
+  transform: rotate(-180deg);
+}
+
+.side-bar {
+  width: @side-bar-width;
+  position: fixed;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  transition: visibility 0.25s, width 0.25s linear;
+  background-color: white;
+  box-shadow: 2px 0 5px 1px black;
+  overflow: hidden;
+  padding: @main-spacing / 2;
+  &__hidden {
+    width: 0;
+    visibility: hidden;
+  }
+  &__inner {
+    width: @side-bar-width;
+  }
+}
+
+.slider {
+  overflow: hidden;
+  position: relative;
+  display: flex;
+  align-items: center;
+  width: 0;
+  height: 0;
+  transition: height 0.5s, width 0.5s linear;
+  &__wrapper {
+    z-index: -2;
+    position: absolute;
+    left: 0;
+    transition: left 0.5s linear;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+  }
+  &__image {
+    margin-right: 10px;
+  }
+  &__button {
+    .toggle-button;
+    position: absolute;
+    &__left {
+      left: @main-spacing * 0.5;
+    }
+    &__right {
+      right: @main-spacing * 0.5;
+    }
+  }
+  &__fixed {
+    .slider__image {
+      width: 900px;
+      height: 450px
+    }
+  }
+}
+
+@media (max-width: 800px) {
+  .navbar {
+    &__fixed {
+      flex-direction: column;
+      justify-content: flex-start;
+      overflow: hidden;
+      transition: height 0.25s linear;
+      &.navbar__fixed__deployed {
+        height: 6 * @navbar-height;
+      }
+    }
+    li:not(:first-of-type) {
+      padding: @main-spacing / 2;
+    }
+    &__link {
+      &__logo {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding-top: 0;
+      }
+    }
+    &__toggle {
+      display: block;
+      .toggle-button;
+      position: absolute;
+      top: 5px;
+      right: @main-spacing
     }
   }
 }
