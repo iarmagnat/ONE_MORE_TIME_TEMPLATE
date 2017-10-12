@@ -1,8 +1,5 @@
 #Template: 'collorfull' for `One More Time`
 
-- No api calls... `work in progress`
-- sorry I prefer markdown rather than raw text files
-
 ## Use and guidelines
 
 - Use only one slider or else it will crash. The same goes for side-bars, top bars, and Star-wars characters tables
