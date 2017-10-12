@@ -162,7 +162,7 @@ footer {
     display: flex;
     justify-content: center;
     align-items: center;
-    margin: 0;
+    margin: 0 0 @main-spacing 0;
     padding: 0;
     max-width: none;
   }
@@ -251,12 +251,11 @@ footer {
       right: @main-spacing * 0.5;
     }
   }
-  &__fixed {
-    .slider__image {
-      width: 900px;
-      height: 450px
-    }
-  }
+}
+
+.grey {
+  background-color: grey;
+  cursor: default;
 }
 
 @media (max-width: 800px) {

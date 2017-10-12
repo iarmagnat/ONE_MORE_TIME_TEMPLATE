@@ -4,14 +4,14 @@
     <meta charset="utf-8">
     <title>Exemple</title>
     <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="font-awesome.min.css">
     <script src="jquery-3.2.1.min.js"></script>
+    <script type="text/javascript" src="require.js"></script>
 
   </head>
   <body>
 
     <header>
-      <!-- <button type="button" name="button" id="button">Button</button> -->
       <nav>
         <ul class="navbar navbar__fixed" id="top-nav">
           <li>
@@ -67,9 +67,9 @@
       </article>
 
       <article class="article article__no-padding">
-        <h2 class="section__title">Holydays photos</h2>
+        <h2 class="article__title">Holydays photos</h2>
         <section class="section section__center-hard">
-          <div class="slider slider__fixed" data-timing="2">
+          <div class="slider">
             <div class="slider__wrapper">
               <img src="http://via.placeholder.com/450x230/000000" alt="Image" class="slider__image">
               <img src="http://via.placeholder.com/1600x900/FF69B4" alt="Image" class="slider__image">
@@ -122,6 +122,26 @@
           <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
           <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
           <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+        </section>
+      </article>
+
+      <article class="article article__accentuated">
+        <h2 class="article__title">SWAPI TIME!!</h2>
+        <section class="section">
+          <h3>STAR-WARS saga characters</h3>
+          <table class="swapi">
+            <thead>
+              <tr>
+                <th>Name</th>
+                <th>Gender</th>
+                <th>Birth year</th>
+              </tr>
+            </thead>
+            <tbody>
+            </tbody>
+          </table>
+          <button type="button" name="button" class="toggle-button" id="swapiPrev"><i class="fa fa-step-backward fa-2x"></i></button>
+          <button type="button" name="button" class="toggle-button" id="swapiNext"><i class="fa fa-step-forward fa-2x"></i></button>
         </section>
       </article>
 
